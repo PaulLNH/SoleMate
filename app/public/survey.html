@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sole Mate - The Dating Site for Active Singles</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <style>
+        a:hover {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="text-center">
+                <span class="fa fa-fire"></span> Sole Mate</h1>
+            <hr>
+            <h2 class="text-center">The Dating Site for Active Singles</h2>
+            <br>
+
+            <div class="text-center">
+                <a href="/">
+                    <button class="btn btn-lg btn-default">
+                        <span class="fa fa-home"> Home</span>
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- Reservation Page -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Find Your Sole Mate</h4>
+                    </div>
+                    <div class="panel-body">
+
+                        <form role="form" id="surveyForm">
+
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" class="form-control" id="first-name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" class="form-control" id="last-name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone-number">Phone Number</label>
+                                <input type="text" class="form-control" id="phone-number">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="text" class="form-control" id="age">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="zip-code">Zip Code</label>
+                                <input type="text" class="form-control" id="zip-code">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="search-radius">Search Radius</label>
+                                <select class="form-control" id="search-radius">
+                                    <option>1 mi</option>
+                                    <option>5 mi</option>
+                                    <option>15 mi</option>
+                                    <option>30 mi</option>
+                                    <option>50 mi</option>
+                                    <option>Love knows no bounds!</option>
+                                </select>
+                            </div>
+
+                            <!-- QUESTION 1 -->
+                            <hr>
+                            <div class="form-group">
+                                <label for="question-1">
+                                    <strong>Question 1:</strong> Your ideal first date would involve being active.
+                                </label>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="question-1" id="1-1" value="1"> 1 - Strongly Disagree
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="question-1" id="1-2" value="2"> 2 - Somewhat Disagree
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="question-1" id="1-3" value="3"> 3 - Neutral
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="question-1" id="1-4" value="4"> 4 - Somewhat Agree
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="question-1" id="1-5" value="5"> 5 - Strongly Agree
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary submit">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <br>
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    <a href="/api/friends">API Friends Link</a> |
+                    <a href="https://github.com/PaulLNH/SoleMate">GitHub Repo</a>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+    $(".submit").on("click", (event) => {
+        event.preventDefault();
+
+        // Here we grab the form elements
+        var formData = {
+            firstName: $("#first-name").val().trim(),
+            lastName: $("#last-name").val().trim(),
+            email: $("#email").val().trim(),
+            phoneNumber: $("#phone-number").val().trim(),
+            age: $("#age").val().trim(),
+            zipCode: $("#zip-code").val().trim(),
+            searchDistance: $("#search-radius").val().trim(),
+            Q1: $('input[name=question-1]:checked', '#surveyForm').val(),
+            Q2: $('input[name=question-2]:checked', '#surveyForm').val(),
+            Q3: $('input[name=question-3]:checked', '#surveyForm').val(),
+            Q4: $('input[name=question-4]:checked', '#surveyForm').val(),
+            Q5: $('input[name=question-5]:checked', '#surveyForm').val(),
+            Q6: $('input[name=question-6]:checked', '#surveyForm').val(),
+            Q7: $('input[name=question-7]:checked', '#surveyForm').val(),
+            Q8: $('input[name=question-8]:checked', '#surveyForm').val(),
+            Q9: $('input[name=question-9]:checked', '#surveyForm').val(),
+            Q10: $('input[name=question-10]:checked', '#surveyForm').val()
+        };
+
+        console.log(formData);
+
+        // This line is the magic. It"s very similar to the standard ajax function we used.
+        // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+        // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+        // depending on if a tables is available or not.
+
+        $.post("/api/friends", formData,
+            function (data) {
+
+                // If a table is available... tell user they are booked.
+                if (data) {
+                    alert("Yay! You are officially booked!");
+                }
+
+                // If a table is available... tell user they on the waiting list.
+                else {
+                    alert("Sorry you are on the wait list");
+                }
+
+                // Clear the form when submitting
+                $("#first-name").val("");
+                $("#last-name").val("");
+                $("#email").val("");
+                $("#phone-number").val("");
+                $("#age").val("");
+                $("#zip-code").val("");
+                $("#search-radius").val("");
+                $('input:radio[name=question-1]:checked').prop('checked', false).checkboxradio("refresh");
+                $('input:radio[name=question-2]:checked').prop('checked', false).checkboxradio("refresh");
+                $('input:radio[name=question-3]:checked').prop('checked', false).checkboxradio("refresh");
+                $('input:radio[name=question-4]:checked').prop('checked', false).checkboxradio("refresh");
+                $('input:radio[name=question-5]:checked').prop('checked', false).checkboxradio("refresh");
+                $('input:radio[name=question-6]:checked').prop('checked', false).checkboxradio("refresh");
+                $('input:radio[name=question-7]:checked').prop('checked', false).checkboxradio("refresh");
+                $('input:radio[name=question-8]:checked').prop('checked', false).checkboxradio("refresh");
+                $('input:radio[name=question-9]:checked').prop('checked', false).checkboxradio("refresh");
+                $('input:radio[name=question-10]:checked').prop('checked', false).checkboxradio("refresh");
+            });
+
+    });
+</script>

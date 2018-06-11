@@ -1,0 +1,25 @@
+{
+  "name": "solemate",
+  "version": "1.0.0",
+  "description": "Dating App for active singles",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulLNH/SoleMate.git"
+  },
+  "author": "Paul Laird",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PaulLNH/SoleMate/issues"
+  },
+  "homepage": "https://github.com/PaulLNH/SoleMate#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "path": "^0.12.7"
+  }
+}
