@@ -16,6 +16,16 @@
         a:hover {
             text-decoration: none;
         }
+
+        #userPhoto {
+            width: 200px;
+            height: 200px;
+        }
+
+        #matchPhoto {
+            width: 200px;
+            height: 200px;
+        }
     </style>
 </head>
 
@@ -33,17 +43,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6 ml-auto">
-                            <h1>You</h1>
+                        <div class="col-6 ml-auto">
+                            <h3>You</h3>
                             <h5 id="userName"></h5>
                             <div id="userPhoto"></div>
                         </div>
-                        <div class="col-md-6 ml-auto">
-                            <div class="col-md-6 ml-auto">
-                                <h1>Your Match!</h1>
-                                <h5 id="matchName"></h5>
-                                <div id="matchPhoto"></div>
-                            </div>
+                        <div class="col-6 ml-auto">
+                            <h3>Your Match!</h3>
+                            <h5 id="matchName"></h5>
+                            <div id="matchPhoto"></div>
                         </div>
                     </div>
                 </div>
@@ -535,9 +543,10 @@
 
 
                 $(`#userName`).text(formData.firstName);
-                $('#userPhoto').html(`<img src="${formData.photo}" alt="Image">`);
+                $('#userPhoto').html(
+                    `<img src="${formData.photo}" alt="Image" width="200px" height="200px">`);
                 $(`#matchName`).text(data.firstName);
-                $('#matchPhoto').html(`<img src="${data.photo}" alt="Image">`);
+                $('#matchPhoto').html(`<img src="${data.photo}" alt="Image" width="200px" height="200px">`);
                 $('#exampleModalCenter').modal();
                 // Clear the form when submitting
                 $("#first-name").val("");
