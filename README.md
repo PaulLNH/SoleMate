@@ -1,123 +1,80 @@
 # SoleMate
 
-The Dating Site for Active Singles
+The dating site for active singles.
 
-## TEMPORARY README NOTES TO OUTLINE THE SCOPE OF THE PROJECT
+## Getting Started
 
-# Friend Finder - Node and Express Servers
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Overview
+### Prerequisites
 
-In this activity, you'll build a compatibility-based "FriendFinder" application -- basically a dating app. This full-stack site will take in results from your users' surveys, then compare their answers with those from other users. The app will then display the name and picture of the user with the best overall match.
+The following NPM packages need to be installed on your server for this application to run.
 
-You will use Express to handle routing. Make sure you deploy your app to Heroku so other users can fill it out.
+- [body-parser](https://www.npmjs.com/package/body-parser) - Node.js body parsing middleware.
+- [express](https://www.npmjs.com/package/express) - Fast, unopinionated, minimalist web framework for node.
+- [path](https://www.npmjs.com/package/path) - Utility for working with file and directory paths.
 
-### Before You Begin
+### Installing
 
-- Check out [this demo version of the site](https://friend-finder-fsf.herokuapp.com/). Use this as a model for how we expect your assignment look and operate.
+Clone the repo by openeing your Git Bash terminal and typing in (a directory you wish to house this application): git clone https://github.com/PaulLNH/SoleMate.git
 
-- Create a folder called `FriendFinder`. Inside the folder, organize your directories so it matches the following:
+Navigate to the SoleMate folder you just created by entering `cd SoleMate` into terminal.
 
-  ```
-  FriendFinder
-    - .gitignore
-    - app
-      - data
-        - friends.js
-      - public
-        - home.html
-        - survey.html
-      - routing
-        - apiRoutes.js
-        - htmlRoutes.js
-    - node_modules
-    - package.json
-    - server.js
-  ```
+Install the dependencies with the `npm i` command, this works because the package.json is setup with the needed dependencies.
 
-### Submission on BCS
+To start the express server type `node server.js` into terminal and wait for the following prompt:
 
-- Please submit both the deployed Heroku link to your homework AND the link to the Github Repository!
-
-### Instructions
-
-1.  Your survey should have 10 questions of your choosing. Each answer should be on a scale of 1 to 5 based on how much the user agrees or disagrees with a question.
-
-2.  Your `server.js` file should require the basic npm packages we've used in class: `express`, `body-parser` and `path`.
-
-3.  Your `htmlRoutes.js` file should include two routes:
-
-    - A GET Route to `/survey` which should display the survey page.
-    - A default, catch-all route that leads to `home.html` which displays the home page.
-
-4.  Your `apiRoutes.js` file should contain two routes:
-
-    - A GET route with the url `/api/friends`. This will be used to display a JSON of all possible friends.
-    - A POST routes `/api/friends`. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
-
-5.  You should save your application's data inside of `app/data/friends.js` as an array of objects. Each of these objects should roughly follow the format below.
-
-```json
-{
-  "name": "Ahmed",
-  "photo":
-    "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-  "scores": [5, 1, 4, 4, 5, 1, 2, 5, 4, 1]
-}
+```
+$ node server.js
+App listening on PORT: 8080
 ```
 
-6.  Determine the user's most compatible friend using the following as a guide:
+At this point you should have an express server instance running on your local machine and you can go to your favorite browser (we prefer chrome) and navigate to `localhost:8080` to view the webpage.
 
-    - Convert each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
-    - With that done, compare the difference between current user's scores against those from other users, question by question. Add up the differences to calculate the `totalDifference`.
-      - Example:
-        - User 1: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`
-        - User 2: `[3, 2, 6, 4, 5, 1, 2, 5, 4, 1]`
-        - Total Difference: **2 + 1 + 2 =** **_5_**
-    - Remember to use the absolute value of the differences. Put another way: no negative solutions! Your app should calculate both `5-3` and `3-5` as `2`, and so on.
-    - The closest match will be the user with the least amount of difference.
+Hosting this server on Heroku or another platform is outside the scope of this guide, but do note that this application does fully support remote hosting.
 
-7.  Once you've found the current user's most compatible friend, display the result as a modal pop-up.
-    - The modal should display both the name and picture of the closest match.
+## Running the tests
 
-### Reminder: Submission on BCS
+The webpage itself has a built in API link at the bottom, this is the best way to run an initial test of your server to ensure all the data is getting ported to the document.
 
-- Please submit both the deployed Github.io link to your homework AND the link to the Github Repository!
+### Break down into end to end tests
 
----
+To complete an in-depth end to end test on this application to ensure all components and logic are working correctly follow the steps below:
 
-### Minimum Requirements
+```
+Give an example
+```
 
-Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Adding a README.md as well as adding this homework to your portfolio are required as well and more information can be found below.
+## Deployment
 
----
+Hosting this server on Heroku or another platform is outside the scope of this guide, but do note that this application does fully support remote hosting.
 
-### Hosting on Heroku
+## Built With
 
-Now that we have a backend to our applications, we use Heroku for hosting. Please note that while **Heroku is free**, it will request credit card information if you have more than 5 applications at a time or are adding a database.
+- [node js](https://nodejs.org/en/) - As an asynchronous event driven JavaScript runtime, Node is designed to build scalable network applications.
+- [express](https://www.npmjs.com/package/express) - Fast, unopinionated, minimalist web framework for node.
+- [body-parser](https://www.npmjs.com/package/body-parser) - Node.js body parsing middleware.
+- [path](https://www.npmjs.com/package/path) - Utility for working with file and directory paths.
 
-Please see [Heroku’s Account Verification Information](https://devcenter.heroku.com/articles/account-verification) for more details.
+## Contributing
 
----
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-### Create a README.md
+## Versioning
 
-Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`. Here are some resources to help you along the way:
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/PaulLNH/SoleMate/tags).
 
-- [About READMEs](https://help.github.com/articles/about-readmes/)
+## Authors
 
-- [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+- **Paul Laird** - _Initial work_ - [PaulLNH](https://github.com/PaulLNH)
 
----
+See also the list of [contributors](https://github.com/PaulLNH/Bamazon/graphs/contributors) who participated in this project.
 
-### Add To Your Portfolio
+## License
 
-After completing the homework please add the piece to your portfolio. Make sure to add a link to your updated portfolio in the comments section of your homework so the TAs can easily ensure you completed this step when they are grading the assignment. To receive an 'A' on any assignment, you must link to it from your portfolio.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
----
+## Acknowledgments
 
-### One More Thing
-
-If you have any questions about this project or the material we have covered, please post them in the community channels in slack so that your fellow developers can help you! If you're still having trouble, you can come to office hours for assistance from your instructor and TAs.
-
-**Good Luck!**
+- Inspiration from my good friend and mentor [Ryan Holt](https://github.com/draconusdesigns)
+- and of course my wife and kids for allowing me the time to pursue my passion in coding
