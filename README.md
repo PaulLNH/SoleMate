@@ -37,14 +37,6 @@ Hosting this server on Heroku or another platform is outside the scope of this g
 
 The webpage itself has a built in API link at the bottom, this is the best way to run an initial test of your server to ensure all the data is getting ported to the document.
 
-### Break down into end to end tests
-
-To complete an in-depth end to end test on this application to ensure all components and logic are working correctly follow the steps below:
-
-```
-Give an example
-```
-
 ## Deployment
 
 Hosting this server on Heroku or another platform is outside the scope of this guide, but do note that this application does fully support remote hosting.
